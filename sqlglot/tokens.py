@@ -926,7 +926,7 @@ class Tokenizer(metaclass=_Tokenizer):
                 break
         self._add(
             TokenType.VAR
-            if self._prev_token_type == TokenType.PARAMETER
+            if self.tokens and self.tokens[-1].token_type == TokenType.PARAMETER
             else self.KEYWORDS.get(self._text.upper(), TokenType.VAR)
         )
 
